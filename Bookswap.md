@@ -619,12 +619,11 @@ PASO 4: Elegir concepto(s) de diseño que satisfacen driver seleccionado
 |DEC-2| REST| La arquitectura REST proporciona un enfoque simple y escalable para el diseño de servicios web. Utiliza operaciones HTTP estándar (GET, POST, PUT, DELETE) y es ampliamente adoptada para la construcción de APIs.
 |DEC-3| Mongoose| Mongoose es una biblioteca de modelado de objetos MongoDB para Node.js. Facilita la interacción con bases de datos MongoDB al proporcionar un esquema claro y validación de datos.
 |DEC-4| Sequelize| Sequelize es un ORM (Object-Relational Mapping) para bases de datos SQL. Facilita la interacción con bases de datos relacionales, permitiendo el uso de objetos y consultas en lugar de SQL directo.
-|DEC-5| Base de datos relacionales y no relacionales (NoSQL)|Mongo y PosgreSQL, la elección de bases de datos depende de los requisitos específicos del proyecto. MongoDB es una base de datos NoSQL que permite esquemas flexibles, mientras que PostgreSQL es una base de datos relacional con soporte para transacciones complejas.
+|DEC-5| Base de datos relacionales y no relacionales (NoSQL)|Mongo y PostgreSQL, la elección de bases de datos depende de los requisitos específicos del proyecto. MongoDB es una base de datos NoSQL que permite esquemas flexibles, mientras que PostgreSQL es una base de datos relacional con soporte para transacciones complejas.
 |DEC-6| Azure PostgreSQL| La elección de Azure PostgreSQL puede deberse a la integración con otros servicios de Azure, escalabilidad, y características adicionales proporcionadas por la plataforma en la nube.
 |DEC-7| JWT-TOKEN| Web Tokens (JWT) proporcionan un método seguro para transmitir información entre partes como un objeto JSON. Se utilizan comúnmente para la autenticación y autorización en las APIs.
 
 PASO 5: Instancias elementos de arquitectura, asignar responsabilidad y definir interfaces (diagrama de secuencia o de interacción)
-
 
 PASO 6: Bosquejo de vistas y registro de decisiones de diseño
 Aquí va las tablas de decisiones de diseño.
@@ -657,8 +656,8 @@ PASO 4: Elegir concepto(s) de diseño que satisfacen driver seleccionado
 |DEC-7|Registro centralizado de eventos y transacciones|	Se establecerá un registro centralizado que capture eventos y transacciones entre los módulos de pago y logística. Esto facilitará la auditoría, la resolución de problemas y el seguimiento de las actividades realizadas. Los registros centralizados también proporcionarán una visión histórica de las interacciones, lo que puede ser valioso para análisis y mejora continua.
 
 PASO 5: Instancias elementos de arquitectura, asignar responsabilidad y definir interfaces
-
-
+- MongoDB Atlas: Cluster de MongoDB Atlas (nube). Encargado de almacenar datos relacionados a mensajes y publicaciones de usuarios. Conexión mediante una cadena definida y utilizando Mongoose para facilitar esto.
+- Pasarela de pago Niubiz: API oficial de Niubiz para procesar los pagos. Procesa, valida y registra las transacciones financieras relacionadas a la aplicación. Se accede mediante la API oficial de Niubiz mediante HTTPS haciendo uso de certificados SSL, autenticandose con una API Key autorizada.
 
 PASO 6: Bosquejo de vistas y registro de decisiones de diseño
 Aquí va las tablas de decisiones de diseño.
