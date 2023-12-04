@@ -539,24 +539,9 @@ El diseño de arquitectura nos ayudará a definir la estructura general del soft
 
 ### 7.1. ENTRADAS DEL ADD
 
-#### DRIVERS DE ARQUITECTURA
+  #### DRIVERS DE ARQUITECTURA
 
-- **Propósito**:
-El propósito es realizar un software que permita la mantenibilidad de la interfaz, que permita al usuario interactuar de manera efectiva, que permita realizar pagos de manera segura y que sea escalable, de modo que ante cualquier cambio solicitado por algún stakeholder o por alguna fuerza mayor, el sistema pueda seguir funcionando sin perjuicio del usuario final.
-
-- **Atributos de calidad**:
-Los atributos de calidad más importantes que han sido identificados en el QAW y en general, son los siguientes y se encuentran listados en orden de prioridad:
- 
-  - Mantenibilidad
-  - Portabilidad
-  - Seguridad
-  - Fiabilidad
-  - Interoperabilidad
-  - Rendimiento
-  - Usabilidad
-  - Disponibilidad
-
-- **Funcionalidad primaria**: 
+- **Casos de uso**: 
 Se eliminó el escenario 10 debido a que podía fusionarse con el escenario 1.
 
   |CÓDIGO|CASO DE USO|DESCRIPCIÓN|
@@ -570,6 +555,19 @@ Se eliminó el escenario 10 debido a que podía fusionarse con el escenario 1.
   |UC-7|Procesar Información de Compra y Enviar al Módulo de Logística|  Garantizar una ejecución eficiente de las transacciones de compra y coordinar la logística asociada. |
   |UC-8|Visualizar Conversación Pasada| Brindar a los usuarios la capacidad de acceder y revisar su historial de conversaciones de manera rápida y eficiente.|
   |UC-9|Cambiar el Tamaño de la Vista| Asegurar una experiencia de usuario consistente y funcional, independientemente del tamaño de la pantalla.|
+
+- **Atributos de calidad**:
+
+  |Código|Atributo|Escenario|Caso de Uso relacionado|
+  |--|--|--|--|
+  |QA-1|Usabilidad|Asegurar una experiencia adecuada de usuario con la interfaz. |UC-3, UC-9|
+  |QA-2|Portabilidad|Cambiar la Base de Datos por Decisión Estratégica|UC-2|
+  |QA-3|Mantenibilidad|Actualizaciones de software|UC-1|
+  |QA-4|Seguridad|Inicio de sesión seguro|UC-4 |
+  |QA-5|Fiabilidad|Manejar fallas externas|UC-5|
+  |QA-6|Seguridad|Realizar copias de seguridad|UC-6|
+  |QA-7|Interoperabilidad|Intercambio de información entre módulos |UC-7|
+  |QA-8|Rendimiento|Visualizar conversaciones pasadas eficientemente|UC-8|
 
 - **Restricciones**: 
 Las bases de datos a utilizar son PostgreSQL para los datos de los libros, las transacciones y los usuarioS; y MongoDB para los datos de los mensajes entre usuarios en la red social. Las bases de datos se desplegarán en Microsoft Azure con una versión de prueba. Se usará Niubiz como pasarela de pago.
@@ -591,7 +589,12 @@ Se utilizarán las tácticas mencionadas en la sección 4.
 - **Decisiones de Diseño de Arquitectura**: Se utilizarán las decisiones de diseño especificadas en la sección 3.
 
 ### 7.2. REVISAR LAS ENTRADAS
- me falta
+ 
+ |PROPÓSITO DE DISEÑO | FUNCIONALIDAD PRIMARIA | ESCENARIOS DE CALIDAD | RESTRICCIONES |
+ |--|--|--|--|
+ |Sistema desde cero. Producir un diseño que sirva de base de manera eficiente. | UC4 - UC7 soportan requerimientos funcionales. UC1: función de soporte | Se priorizan por relación con funcionalidad primaria. Seleccionados: QA4, QA7 (prioridad ALTA), QA1 y QA3 (prioridad media)| Se seleccionan todas las mencionadas. |
+
+
 ### 7.3. ITERACIONES
 Se realizarán tres iteraciones, cuyos pasos 1 (objetivo de la iteración), 2 (elemento del sistema a refinar), 3 (elección de elemento del sistema a refinar), 4 (concepto de diseño que satisfacen el driver seleccionado) se resumirán en la siguiente tabla. En cada iteración se describirá el detalle.
 | ITERACIÓN | OBJETIVO | ELEMENTO | ELECCIÓN DE ELEMENTO | CONCEPTO DE DISEÑO |
