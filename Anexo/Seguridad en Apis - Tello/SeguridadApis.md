@@ -57,3 +57,23 @@ Implementar soluciones de monitoreo constante permite detectar y responder a pos
 Un enfoque proactivo hacia la seguridad ayuda a mitigar riesgos antes de que se conviertan en problemas graves.
 
 ## CONSIDERACIONES TÉCNICAS
+Clonar el repositorio e instalar las dependecias con:
+```javascript
+npm install
+```
+
+Se debe agregar el archivo *.env* en el directorio raiz, como se muestra en la imagen:
+![alt text](./assets/env.png "env file")
+
+Dentro del archivo .env se debe agregar las variables de entorno:
+```javascript
+DATABASE_URL=[]
+JWT_SECRET=[]
+```
+
+Reemplaza los [] por el URI de su database en postgres y una palabra que sirva para firmar la encriptación de los tokens
+
+Una vez agregado el .env ya puede correr el proyecto. Para levantarlo de manera local, lo puede hacer con el comando
+```javascript
+npm run dev
+```
