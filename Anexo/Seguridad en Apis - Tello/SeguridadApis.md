@@ -77,3 +77,7 @@ Una vez agregado el .env ya puede correr el proyecto. Para levantarlo de manera 
 ```javascript
 npm run dev
 ```
+
+Se puede ver un video de mostracion en el siguiente link
+
+[demo](https://drive.google.com/file/d/12IYEdH3FodLW6xpLY4WtKBViK05xQWp8/view?usp=drive_link)
