@@ -264,7 +264,7 @@ La plataforma web permite a los usuarios comprar y vender libros de segunda mano
 - **Editorial**: Esta tabla almacena información sobre las editoriales de los libros que se ofrecen a la venta en la plataforma. Los campos incluyen el nombre de la editorial y el país de origen.
 - **Autor**: Esta tabla almacena información sobre los autores de los libros que se ofrecen a la venta en la plataforma. Los campos incluyen el nombre del autor y el país de origen.
 
-<img src="img/diagrama_bd.jpg" width="100%"/>
+  <img src="img/diagrama_bd.jpg" width="100%"/>
 
 #### Base de Datos No Relacional
 
@@ -326,15 +326,6 @@ Se muestra el mapeo de elementos a nivel de despliegue. a arquitectura de la apl
 - **Back-end** de la aplicación es la capa que proporciona acceso a los datos y funcionalidades de la aplicación. Está implementado en express.js con Javascript como lenguaje de programación. El API se ejecuta en un servidor.
 
 - **Base de datos**  almacena los datos de la aplicación. Está implementada en dos sistemas de gestión de bases de datos: PostgreSQL y MongoDB. La base de datos se ejecuta en un servidor.
-
-## MODELO C4 NIVEL 1
-<img src="img/C4-NIVEL1.jpeg" width="100%">
-
-## MODELO C4 NIVEL 2
-<img src="img/C4-NIVEL2.jpeg" width="100%">
-
-## MODELO C4 NIVEL 3
-<img src="img/C4-NIVEL3.jpeg" width="100%">
 
 ### 3.5. Elección de Tecnología
 Para el desarrollo del sistema, se han seleccionado las siguientes tecnologías:
@@ -504,6 +495,22 @@ La seguridad es indispensable ya que la plataforma debe proteger la información
 
 ## 6. QAW
 
+### 6.1. Identificación de Stakeholders
+
+|ID|Rol (Catálogo)|Cargo|
+|--|--|--|
+|STK-01|Usuario|Usuario|
+|STK-02|Jefe de proyecto|CEO|
+|STK-03|Administrador de Base de Datos|Data Governance|
+|STK-04|Diseñador|Desarrollador |
+|STK-05|Implementador|Ingeniero de sistemas|
+|STK-06|Especialista de Despliegue|Ingeniero de software|
+|STK-07|Responsable de pruebas|Q&A|
+|STK-08|Responsable de Mantenimiento|Q&A|
+|STK-09|Ingeniero de Sistemas|CTO|
+
+Las etapas de Brainstorming, Consolidación y Refinamiento se consolidaron en la siguiente tabla de escenarios priorizados y detallados.
+
 |ID Escenario|	Fuente Estímulo	|Estímulo|	Artefacto	|Entorno	|Respuesta|Medida de Respuesta|
 |--|---|--|--|--|--|--|
 |ESC-02	|Especialista de despliegue	|Se realiza una actualización de sistema	|Infraestructura del servidor|	Modo seguro	|El sistema debe operar con normalidad	|Downtime por actualización :  5 min|
@@ -526,32 +533,63 @@ El diseño de arquitectura nos ayudará a definir la estructura general del soft
 #### DRIVERS DE ARQUITECTURA
 
 - **Propósito**:
-*Depende de los objetivos de negocio relacionados*
+El propósito es realizar un software que permita la mantenibilidad de la interfaz, que permita al usuario interactuar de manera efectiva, que permita realizar pagos de manera segura y que sea escalable, de modo que ante cualquier cambio solicitado por algún stakeholder o por alguna fuerza mayor, el sistema pueda seguir funcionando sin perjuicio del usuario final.
+
 - **Atributos de calidad**:
-*Los que tienen impacto más significativo en la arquitectura. Los que nos arroja el QAW.
-Documentar árboles de utilidad para priorizarlos.*
-- **Funcionalidad primaria**: El 10% de los casos de uso más importantes.
-- **Preocupaciones a nivel de arquitectura:** Aspectos adicionales que no se expresan como requerimientos tradicionales.
-- **Restricciones**: Técnicas (tecnologías obligados a adoptar, integraciones con otros sistemas) y no técnicas (temas regulatorios).
+Los atributos de calidad más importantes que han sido identificados en el QAW y en general, son los siguientes y se encuentran listados en orden de prioridad:
+ 
+  - Mantenibilidad
+  - Portabilidad
+  - Seguridad
+  - Fiabilidad
+  - Interoperabilidad
+  - Rendimiento
+  - Usabilidad
+  - Disponibilidad
+
+- **Funcionalidad primaria**: 
+Se eliminó el escenario 10 debido a que podía fusionarse con el escenario 1.
+
+  |CÓDIGO|CASO DE USO|DESCRIPCIÓN|
+  |--|--|--|
+  |UC-1|Realizar una Actualización del Sistema| Garantizar que las actualizaciones se realicen de manera eficiente y sin interrupciones significativas en el servicio.|
+  |UC-2|Cambiar la Base de Datos por Decisión Estratégica Mejorar o adaptar la infraestructura de la base de datos para satisfacer las necesidades cambiantes del sistema.| 
+  |UC-3|Realizar Cambios en la Interfaz de Usuario|Mantener una interfaz de usuario actualizada, atractiva y funcional que cumpla con las expectativas del usuario. | 
+  |UC-4|Iniciar sesión|Garantizar la seguridad y la identificación adecuada de los usuarios que acceden al sistema, mediante autenticación y verificación.|
+  |UC-5|Manejar una Falla en Servicios Externos| Mantener la continuidad del servicio y proporcionar una experiencia de usuario sin interrupciones, incluso en caso de fallas externas.|
+  |UC-6|Realizar una Copia de Seguridad| Asegurar la integridad y disponibilidad de los datos, permitiendo la recuperación en caso de pérdida o errores.|
+  |UC-7|Procesar Información de Compra y Enviar al Módulo de Logística|  Garantizar una ejecución eficiente de las transacciones de compra y coordinar la logística asociada. |
+  |UC-8|Visualizar Conversación Pasada| Brindar a los usuarios la capacidad de acceder y revisar su historial de conversaciones de manera rápida y eficiente.|
+  |UC-9|Cambiar el Tamaño de la Vista| Asegurar una experiencia de usuario consistente y funcional, independientemente del tamaño de la pantalla.|
+
+- **Restricciones**: 
+Las bases de datos a utilizar son PostgreSQL para los datos de los libros, las transacciones y los usuarioS; y MongoDB para los datos de los mensajes entre usuarios en la red social. Las bases de datos se desplegarán en Microsoft Azure con una versión de prueba. Se usará Niubiz como pasarela de pago.
 
 #### CONCEPTOS DE DISEÑO
 
-- **Arquitecturas de Referencia**:
-- **Patrones de arquitectura**
-- **Patrones de Despliegue**
+- **Patrones de arquitectura**: 
+  - Se puede aplicar el **patrón P2P** para la mensajería entre usuarios. Este es ideal para la comunicación directa entre pares evitando un servidor centralizado para las conversaciones, además de que reduce la dependencia de un único punto de falla.
+  - Para el resto de la arquitectura, se puede aplicar el **patrón Modelo Vista Controlador**. Esto facilita la gestión y el mantenimiento del código facilitando la escalabilidad, además de que permite la reutilización de componentes en diferentes partes de la aplicación. 
+
 - **Tácticas**
-- **Componentes Desarrollados externamente** (Familia de tecnologías, productos, frameworks de aplicación, nubes)
-- **Decisiones de Diseño de Arquitectura**: Seleccionar la mejor opción.
+Se utilizarán las tácticas mencionadas en la sección 4.
+
+- **Componentes Desarrollados externamente** 
+  - Pasarela de pagos: Niubiz
+  - Frameworks: React+Vite | Express 
+  - Nubes: PostgreSQL y MongoDB
+
+- **Decisiones de Diseño de Arquitectura**: Se utilizarán las decisiones de diseño especificadas en la sección 3.
 
 ### 7.2. REVISAR LAS ENTRADAS
-
+ me falta
 ### 7.3. ITERACIONES
 Se realizarán tres iteraciones, cuyos pasos 1 (objetivo de la iteración), 2 (elemento del sistema a refinar), 3 (elección de elemento del sistema a refinar), 4 (concepto de diseño que satisfacen el driver seleccionado) se resumirán en la siguiente tabla. En cada iteración se describirá el detalle.
 | ITERACIÓN | OBJETIVO | ELEMENTO | ELECCIÓN DE ELEMENTO | CONCEPTO DE DISEÑO |
 |---|---|---|---|---|
-|1 |   |   |   |   |
-|2 |   |   |   |   |
-|3 |   |   |   |   |
+|1 | Garantizar un adecuado inicio de sesión del usuario y su seguridad al navegar en la página web. | Módulo Usuario | Inicio de Sesión |  Autenticación JWT / Ratelimiting |
+|2 | Garantizar la interoperabilidad entre módulos, de manera que los productos agregados a la compra puedan ser transferidos a la logística del sistema. |  Módulos de Pagos Logística | Pasarela de pagos | Uso de pasarela de pagos externa. |
+|3 |  Garantizar el cumplimiento del resto de atributos de calidad en los casos de uso listados.  |  Todos los módulos |  Aplica a todos | Los mencionados en el punto 7.1 |
 
 #### ITERACIÓN 1
 
