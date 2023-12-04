@@ -541,7 +541,22 @@ El diseño de arquitectura nos ayudará a definir la estructura general del soft
 
 #### DRIVERS DE ARQUITECTURA
 
-- **Casos de uso**: 
+- **Propósito**:
+El propósito es realizar un software que permita la mantenibilidad de la interfaz, que permita al usuario interactuar de manera efectiva, que permita realizar pagos de manera segura y que sea escalable, de modo que ante cualquier cambio solicitado por algún stakeholder o por alguna fuerza mayor, el sistema pueda seguir funcionando sin perjuicio del usuario final.
+
+- **Atributos de calidad**:
+Los atributos de calidad más importantes que han sido identificados en el QAW y en general, son los siguientes y se encuentran listados en orden de prioridad:
+ 
+  - Mantenibilidad
+  - Portabilidad
+  - Seguridad
+  - Fiabilidad
+  - Interoperabilidad
+  - Rendimiento
+  - Usabilidad
+  - Disponibilidad
+
+- **Funcionalidad primaria**: 
 Se eliminó el escenario 10 debido a que podía fusionarse con el escenario 1.
 
   |CÓDIGO|CASO DE USO|DESCRIPCIÓN|
@@ -555,19 +570,6 @@ Se eliminó el escenario 10 debido a que podía fusionarse con el escenario 1.
   |UC-7|Procesar Información de Compra y Enviar al Módulo de Logística|  Garantizar una ejecución eficiente de las transacciones de compra y coordinar la logística asociada. |
   |UC-8|Visualizar Conversación Pasada| Brindar a los usuarios la capacidad de acceder y revisar su historial de conversaciones de manera rápida y eficiente.|
   |UC-9|Cambiar el Tamaño de la Vista| Asegurar una experiencia de usuario consistente y funcional, independientemente del tamaño de la pantalla.|
-
-- **Atributos de calidad**:
-
-  |Código|Atributo|Escenario|Caso de Uso relacionado|
-  |--|--|--|--|
-  |QA-1|Usabilidad|Asegurar una experiencia adecuada de usuario con la interfaz. |UC-3, UC-9|
-  |QA-2|Portabilidad|Cambiar la Base de Datos por Decisión Estratégica|UC-2|
-  |QA-3|Mantenibilidad|Actualizaciones de software|UC-1|
-  |QA-4|Seguridad|Inicio de sesión seguro|UC-4 |
-  |QA-5|Fiabilidad|Manejar fallas externas|UC-5|
-  |QA-6|Seguridad|Realizar copias de seguridad|UC-6|
-  |QA-7|Interoperabilidad|Intercambio de información entre módulos |UC-7|
-  |QA-8|Rendimiento|Visualizar conversaciones pasadas eficientemente|UC-8|
 
 - **Restricciones**: 
 Las bases de datos a utilizar son PostgreSQL para los datos de los libros, las transacciones y los usuarioS; y MongoDB para los datos de los mensajes entre usuarios en la red social. Las bases de datos se desplegarán en Microsoft Azure con una versión de prueba. Se usará Niubiz como pasarela de pago.
@@ -589,11 +591,7 @@ Se utilizarán las tácticas mencionadas en la sección 4.
 - **Decisiones de Diseño de Arquitectura**: Se utilizarán las decisiones de diseño especificadas en la sección 3.
 
 ### 7.2. REVISAR LAS ENTRADAS
- 
- |PROPÓSITO DE DISEÑO | FUNCIONALIDAD PRIMARIA | ESCENARIOS DE CALIDAD | RESTRICCIONES |
- |--|--|--|--|
- |Sistema desde cero. Producir un diseño que sirva de base de manera eficiente. | UC4 - UC7 soportan requerimientos funcionales. UC1: función de soporte | Se priorizan por relación con funcionalidad primaria. Seleccionados: QA4, QA7 (prioridad ALTA), QA1 y QA3 (prioridad media)| Se seleccionan todas las mencionadas. |
-
+ me falta
 ### 7.3. ITERACIONES
 Se realizarán tres iteraciones, cuyos pasos 1 (objetivo de la iteración), 2 (elemento del sistema a refinar), 3 (elección de elemento del sistema a refinar), 4 (concepto de diseño que satisfacen el driver seleccionado) se resumirán en la siguiente tabla. En cada iteración se describirá el detalle.
 | ITERACIÓN | OBJETIVO | ELEMENTO | ELECCIÓN DE ELEMENTO | CONCEPTO DE DISEÑO |
@@ -611,6 +609,19 @@ PASO 2: Elemento del sistema a refinar
 PASO 3: Elegir uno o más elementos del sistema a refinar
 
 PASO 4: Elegir concepto(s) de diseño que satisfacen driver seleccionado
+
+|ID |Decisión de diseño | Fundamento
+|---|---|---|
+|DEC-1| Express.js| Express.js es un marco web de Node.js que simplifica el desarrollo de aplicaciones web y APIs. Se ha vuelto popular debido a su simplicidad, flexibilidad y rendimiento.
+|DEC-2| REST| La arquitectura REST proporciona un enfoque simple y escalable para el diseño de servicios web. Utiliza operaciones HTTP estándar (GET, POST, PUT, DELETE) y es ampliamente adoptada para la construcción de APIs.
+|DEC-3| Mongoose| Mongoose es una biblioteca de modelado de objetos MongoDB para Node.js. Facilita la interacción con bases de datos MongoDB al proporcionar un esquema claro y validación de datos.
+|DEC-4| Sequelize| Sequelize es un ORM (Object-Relational Mapping) para bases de datos SQL. Facilita la interacción con bases de datos relacionales, permitiendo el uso de objetos y consultas en lugar de SQL directo.
+|DEC-5| Base de datos relacionales y no relacionales (NoSQL)|Mongo y PosgreSQL, la elección de bases de datos depende de los requisitos específicos del proyecto. MongoDB es una base de datos NoSQL que permite esquemas flexibles, mientras que PostgreSQL es una base de datos relacional con soporte para transacciones complejas.
+|DEC-6| Azure PostgreSQL| La elección de Azure PostgreSQL puede deberse a la integración con otros servicios de Azure, escalabilidad, y características adicionales proporcionadas por la plataforma en la nube.
+|DEC-7| JWT-TOKEN| Web Tokens (JWT) proporcionan un método seguro para transmitir información entre partes como un objeto JSON. Se utilizan comúnmente para la autenticación y autorización en las APIs.
+|DEC-8| ATLAS MONGO| Atlas MongoDB es un servicio de base de datos gestionado en la nube para MongoDB. Ofrece escalabilidad, disponibilidad y seguridad sin la necesidad de gestionar la infraestructura.
+|DEC-9| Pasarela de pago Niubiz| La elección de Niubiz como pasarela de pago puede deberse a su confiabilidad, seguridad y la capacidad de procesar pagos de manera eficiente.
+  
 
 PASO 5: Instancias elementos de arquitectura, asignar responsabilidad y definir interfaces (diagrama de secuencia o de interacción)
 
