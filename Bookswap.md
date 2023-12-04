@@ -622,11 +622,9 @@ PASO 4: Elegir concepto(s) de diseño que satisfacen driver seleccionado
 |DEC-5| Base de datos relacionales y no relacionales (NoSQL)|Mongo y PosgreSQL, la elección de bases de datos depende de los requisitos específicos del proyecto. MongoDB es una base de datos NoSQL que permite esquemas flexibles, mientras que PostgreSQL es una base de datos relacional con soporte para transacciones complejas.
 |DEC-6| Azure PostgreSQL| La elección de Azure PostgreSQL puede deberse a la integración con otros servicios de Azure, escalabilidad, y características adicionales proporcionadas por la plataforma en la nube.
 |DEC-7| JWT-TOKEN| Web Tokens (JWT) proporcionan un método seguro para transmitir información entre partes como un objeto JSON. Se utilizan comúnmente para la autenticación y autorización en las APIs.
-|DEC-8| ATLAS MONGO| Atlas MongoDB es un servicio de base de datos gestionado en la nube para MongoDB. Ofrece escalabilidad, disponibilidad y seguridad sin la necesidad de gestionar la infraestructura.
-|DEC-9| Pasarela de pago Niubiz| La elección de Niubiz como pasarela de pago puede deberse a su confiabilidad, seguridad y la capacidad de procesar pagos de manera eficiente.
-  
 
 PASO 5: Instancias elementos de arquitectura, asignar responsabilidad y definir interfaces (diagrama de secuencia o de interacción)
+
 
 PASO 6: Bosquejo de vistas y registro de decisiones de diseño
 Aquí va las tablas de decisiones de diseño.
@@ -640,13 +638,27 @@ PASO 7: ANÁLISIS DEL DISEÑO ACTUAL, REVISAR OBJETIVO DE ITERACIÓN Y LOGRO DEL
 #### ITERACIÓN 2
 PASO 1: Objetivo de iteración
 
+Garantizar la interoperabilidad entre módulos, de manera que los productos agregados a la compra puedan ser transferidos a la logística del sistema.
+
 PASO 2: Elemento del sistema a refinar
 
-PASO 3: Elegir uno o más elementos del sistema a refinar
+En esta iteración el elemento es el sistema completo, pero la iteración se centra en los módulos de Pago y Logística
 
 PASO 4: Elegir concepto(s) de diseño que satisfacen driver seleccionado
 
-PASO 5: Instancias elementos de arquitectura, asignar responsabilidad y definir interfaces (diagrama de secuencia o de interacción)
+|ID |Decisión de diseño | Fundamento
+|---|---|---|
+|DEC-1| ATLAS MONGO| Atlas MongoDB es un servicio de base de datos gestionado en la nube para MongoDB. Ofrece escalabilidad, disponibilidad y seguridad sin la necesidad de gestionar la infraestructura.
+|DEC-2| Pasarela de pago Niubiz| La elección de Niubiz como pasarela de pago puede deberse a su confiabilidad, seguridad y la capacidad de procesar pagos de manera eficiente.
+|DEC-3| Certificación SSL | Los despliegues de la aplicación, deben contar con un certificado SSL para no tener problemas con la comunicación al API de Niubiz.
+|DEC-4| Interfaz unificada para módulos de pago y logística	| Se establecerá una interfaz unificada que permita la comunicación eficiente entre los módulos de pago y logística. Esto facilitará la transferencia de información sobre productos adquiridos, métodos de pago y direcciones de entrega de manera coherente y sin ambigüedades. La interfaz deberá ser bien definida y documentada para garantizar la consistencia en la implementación de ambos módulos.
+|DEC-5| Adopción de estándares de intercambio de datos | Se seleccionarán estándares de intercambio de datos reconocidos y ampliamente aceptados, como JSON o XML, para la transferencia de información entre los módulos de pago y logística. Esto asegurará la interoperabilidad y simplificará la integración con futuros módulos o servicios externos.
+|DEC-6|Implementación de un bus de eventos para comunicación asíncrona|Se utilizará un bus de eventos para la comunicación asíncrona entre los módulos de pago y logística. Esto permitirá una mayor flexibilidad y escalabilidad al tiempo que reduce la dependencia directa entre los módulos. Los eventos específicos incluirán la confirmación de pago, la disponibilidad de productos y las actualizaciones de estado logístico.
+|DEC-7|Registro centralizado de eventos y transacciones|	Se establecerá un registro centralizado que capture eventos y transacciones entre los módulos de pago y logística. Esto facilitará la auditoría, la resolución de problemas y el seguimiento de las actividades realizadas. Los registros centralizados también proporcionarán una visión histórica de las interacciones, lo que puede ser valioso para análisis y mejora continua.
+
+PASO 5: Instancias elementos de arquitectura, asignar responsabilidad y definir interfaces
+
+
 
 PASO 6: Bosquejo de vistas y registro de decisiones de diseño
 Aquí va las tablas de decisiones de diseño.
