@@ -605,13 +605,68 @@ Se realizarán tres iteraciones, cuyos pasos 1 (objetivo de la iteración), 2 (e
 
 #### ITERACIÓN 1
 
-PASO 1: Objetivo de iteración
+PASO 1: Objetivo de iteración:
+### Objetivo Principal
+El objetivo primordial de esta iteración es implementar un sistema robusto de inicio de sesión para los usuarios, garantizando no solo la accesibilidad sino también la seguridad durante toda la experiencia de navegación en nuestra página web.
+
+### Detalles del Objetivo
+1. **Implementación de Inicio de Sesión:**
+   - Introducir un sistema de inicio de sesión utilizando la decisión de diseño DEC-7 (JWT-TOKEN) para autenticar a los usuarios de manera segura y eficiente.
+   - Verificar y validar las credenciales del usuario durante el proceso de inicio de sesión.
+
+2. **Seguridad en las APIs:**
+   - Reforzar la seguridad en nuestras APIs mediante la utilización de JWT (JSON Web Tokens) para la autenticación de usuarios, evitando vulnerabilidades comunes como ataques de suplantación de identidad.
+   - Implementar mecanismos de expiración y renovación de tokens para mantener la seguridad a lo largo del tiempo de sesión.
+
+3. **Registro de Actividades:**
+   - Establecer un sistema de registro de actividades del usuario, permitiendo la monitorización y detección proactiva de comportamientos sospechosos.
+   - Registrar eventos de inicio de sesión, cierres de sesión y otros eventos de importancia para un análisis de seguridad.
+
+4. **Seguridad en Contraseñas:**
+   - Aplicar buenas prácticas de seguridad en la gestión de contraseñas, como el almacenamiento seguro mediante técnicas hash y la imposición de requisitos de complejidad.
+
+### Métricas de Éxito
+- **Índice de Éxito de Inicios de Sesión:** Lograr un alto porcentaje de inicios de sesión exitosos.
+
 
 PASO 2: Elemento del sistema a refinar
 
+### Descripción del Módulo Usuario
+El Módulo Usuario es una parte crítica de nuestra aplicación, ya que facilita las funciones de registro y inicio de sesión para los usuarios. Dada su importancia, es crucial asegurar la robustez y seguridad de este componente.
+
+### Objetivos de Refinamiento
+1. **Implementación de JWT en Proceso de Inicio de Sesión:**
+   - Integrar de manera efectiva la decisión de diseño DEC-7 (JWT-TOKEN) en el proceso de inicio de sesión del usuario.
+   - Garantizar que la generación y verificación de tokens JWT se realice de manera segura, utilizando bibliotecas y prácticas recomendadas.
+
+2. **Políticas de Contraseña:**
+   - Establecer políticas de contraseñas robustas que exijan una combinación de caracteres, números y símbolos.
+
+3. **Control de Acceso:**
+   - Utilizar los datos almacenados en el token JWT para autorizar acciones específicas y mantener la seguridad a nivel funcional.
+### Métricas de Éxito
+- **Tasa de Éxito en Verificación de Tokens JWT:** Garantizar una alta tasa de éxito en la verificación de tokens, indicando la correcta implementación del sistema de autenticación.
+
 PASO 3: Elegir uno o más elementos del sistema a refinar
 
+El "Inicio de Sesión" se ha identificado como el componente central a refinar durante esta iteración. Este proceso permite a los usuarios autenticarse en la aplicación, estableciendo su identidad y autorizando el acceso a funcionalidades específicas. Mejorar este componente es fundamental para garantizar una experiencia de usuario segura y eficiente.
+
+- Seguridad: Reforzar la seguridad del proceso de inicio de sesión para prevenir accesos no autorizados y proteger la información del usuario.
+- Eficiencia: Optimizar el flujo de inicio de sesión para garantizar una experiencia de usuario fluida y rápida.
+
 PASO 4: Elegir concepto(s) de diseño que satisfacen driver seleccionado
+
+**Autenticación JWT (JSON Web Tokens):**
+
+- Descripción: La autenticación JWT es un método utilizado para verificar la identidad de un usuario mediante el uso de tokens basados en JSON. Estos tokens son generados por un servidor de autenticación después de que un usuario se ha autenticado correctamente.
+- Funcionamiento: Después de que un usuario inicia sesión, el servidor genera un token JWT que contiene información sobre el usuario y sus privilegios. Este token se firma digitalmente y se envía al cliente. El cliente incluye este token en las solicitudes posteriores al servidor, permitiendo al servidor verificar la identidad del usuario en cada solicitud.
+- Beneficios: La autenticación JWT es eficiente y escalable, ya que elimina la necesidad de mantener sesiones de usuario en el servidor. Además, al contener información codificada en el token, reduce la necesidad de consultar la base de datos en cada solicitud, mejorando el rendimiento.
+Ratelimiting:
+
+**Ratelimiting**
+- Descripción: El "Ratelimiting" (limitación de velocidad) es una técnica utilizada para controlar la cantidad de solicitudes que un usuario puede hacer a una aplicación o servicio en un período de tiempo específico.
+- Funcionamiento: Se establece un límite máximo de solicitudes que un usuario puede realizar en un intervalo de tiempo determinado. Si el usuario excede este límite, se le niega temporalmente el acceso a ciertos recursos o funciones. El "Ratelimiting" es una medida de seguridad para prevenir ataques de fuerza bruta o abuso de servicios.
+- Beneficios: Protege contra abusos accidentales o malintencionados al imponer restricciones en la velocidad de las solicitudes. Ayuda a mantener la estabilidad y disponibilidad del sistema, evitando la sobrecarga de recursos.
 
 |ID |Decisión de diseño | Fundamento
 |---|---|---|
@@ -628,14 +683,64 @@ PASO 4: Elegir concepto(s) de diseño que satisfacen driver seleccionado
 
 PASO 5: Instancias elementos de arquitectura, asignar responsabilidad y definir interfaces (diagrama de secuencia o de interacción)
 
+**JWT (JSON Web Tokens):**
+
+- Responsabilidad:
+Gestionar la autenticación y autorización de usuarios mediante la emisión y validación de tokens seguros.
+Interfaces:
+Exponer endpoints para la generación y validación de tokens.
+Proporcionar una interfaz para la gestión de usuarios y roles.
+
+**Azure PostgreSQL:**
+
+- Responsabilidad:
+Almacenar y gestionar datos relacionados con usuarios y aplicaciones de manera segura y escalable.
+Interfaces:
+Ofrecer una interfaz de conexión segura para la aplicación backend.
+Exponer operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para la gestión de datos.
+
+**REST (Representational State Transfer):**
+
+- Responsabilidad:
+Definir un estilo arquitectónico para el desarrollo de servicios web basados en estándares HTTP.
+Interfaces:
+Definir y documentar endpoints para las operaciones de la aplicación (por ejemplo, autenticación, consulta de datos).
+
+**Sequelize:**
+
+- Responsabilidad:
+Proporcionar un ORM (Object-Relational Mapping) para interactuar con la base de datos de manera abstracta.
+Interfaces:
+Exponer métodos y funciones para realizar operaciones de base de datos sin la necesidad de escribir SQL directamente.
+Ofrecer una interfaz para la definición de modelos de datos.
+
+
 PASO 6: Bosquejo de vistas y registro de decisiones de diseño
-Aquí va las tablas de decisiones de diseño.
-| Driver | Decisiones de diseño y ubicación | Justificación y suspuestos | 
-|----|----|----|
-|QA-1|Introducir concurrencia (táctica) en TimeServerConnector y FaultDetectionService | Se debe introducir la concurrencia para poder recibir y procesar varios eventos en simultáneo | 
-|QA-2| Uso de un patrón de mensajería mediante la introducción de una cola de mensajes en la capa de comunicaciones| Aunque el uso de una cola de mensajes puede parecer ir en contra del rendimiento impuesto por el escenario, se eligió una cola de mensajes porque algunas implementaciones tienen un alto rendimiento y además, será útil para soportar el QA-3|
+![Alt text](image.png)
+
+| Driver | Decisiones de diseño y ubicación | Justificación y supuestos |
+|--------|----------------------------------|-----------------------------|
+| Seguridad del Usuario | Uso de JWT para autenticación y autorización. | La decisión de implementar JWT (JSON Web Tokens) se basa en su capacidad para proporcionar un método seguro y eficiente de autenticación, eliminando la necesidad de almacenar información de sesión en el servidor. |
+| Almacenamiento de Datos | Utilización de Azure PostgreSQL con Sequelize como ORM. | Se elige Azure PostgreSQL como base de datos relacional para aprovechar su escalabilidad y confiabilidad. Sequelize se utiliza como ORM para simplificar las interacciones con la base de datos desde la aplicación. |
+| Diseño de la API | Implementación de una arquitectura RESTful. | La decisión de adoptar una arquitectura RESTful se debe a su simplicidad, escalabilidad y facilidad de integración con diferentes tecnologías y plataformas. |
+| Abstracción de la Base de Datos | Uso de Sequelize como ORM para interactuar con Azure PostgreSQL. | Sequelize proporciona una capa de abstracción sobre la base de datos, facilitando la realización de operaciones CRUD y simplificando el código. |
+
 
 PASO 7: ANÁLISIS DEL DISEÑO ACTUAL, REVISAR OBJETIVO DE ITERACIÓN Y LOGRO DEL PROPÓSITO DEL DISEÑO
+
+|No Abordado	|Parcialmente Abordado	|Completamente Abordado	|Decisión de diseño|
+|----|----|----|---|
+|ESC-7|ESC-2   |DEC-2,DEC-5   |
+|ESC-10|       || DEC-5.DEC-6|
+|ESC-11| |   | |
+|    |    |ESC-4|DEC-1,DEC-2,DEC-4,DEC-6,DEC-5,DEC-7|
+|ESC-05|  | | |
+|      |ESC-13||DEC-2,DEC-6|
+|ESC-20|      |||
+|ESC-15|      |||
+|       |ESC-07||DEC-2,DEC-6,DEC-5|
+|       |ESC-19||DEC-2,DEC-6,DEC-5|
+
 
 #### ITERACIÓN 2
 PASO 1: Objetivo de iteración
