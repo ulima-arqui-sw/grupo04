@@ -327,6 +327,15 @@ Se muestra el mapeo de elementos a nivel de despliegue. a arquitectura de la apl
 
 - **Base de datos**  almacena los datos de la aplicación. Está implementada en dos sistemas de gestión de bases de datos: PostgreSQL y MongoDB. La base de datos se ejecuta en un servidor.
 
+## MODELO C4 NIVEL 1
+<img src="img/n1-sistemas.jpeg" width="80%">
+
+## MODELO C4 NIVEL 2
+<img src="img/n2-contenedores.jpeg" width="80%">
+
+## MODELO C4 NIVEL 3
+<img src="img/n3-componentes.jpeg" width="80%">
+
 ### 3.5. Elección de Tecnología
 Para el desarrollo del sistema, se han seleccionado las siguientes tecnologías:
 
