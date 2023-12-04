@@ -553,7 +553,7 @@ Se eliminó el escenario 10 debido a que podía fusionarse con el escenario 1.
   |CÓDIGO|CASO DE USO|DESCRIPCIÓN|
   |--|--|--|
   |UC-1|Realizar una Actualización del Sistema| Garantizar que las actualizaciones se realicen de manera eficiente y sin interrupciones significativas en el servicio.|
-  |UC-2|Cambiar la Base de Datos por Decisión Estratégica Mejorar o adaptar la infraestructura de la base de datos para satisfacer las necesidades cambiantes del sistema.| 
+  |UC-2|Cambiar la Base de Datos por Decisión Estratégica| Mejorar o adaptar la infraestructura de la base de datos para satisfacer las necesidades cambiantes del sistema.| 
   |UC-3|Realizar Cambios en la Interfaz de Usuario|Mantener una interfaz de usuario actualizada, atractiva y funcional que cumpla con las expectativas del usuario. | 
   |UC-4|Iniciar sesión|Garantizar la seguridad y la identificación adecuada de los usuarios que acceden al sistema, mediante autenticación y verificación.|
   |UC-5|Manejar una Falla en Servicios Externos| Mantener la continuidad del servicio y proporcionar una experiencia de usuario sin interrupciones, incluso en caso de fallas externas.|
