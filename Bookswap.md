@@ -622,6 +622,7 @@ PASO 4: Elegir concepto(s) de diseño que satisfacen driver seleccionado
 |DEC-5| Base de datos relacionales y no relacionales (NoSQL)|Mongo y PostgreSQL, la elección de bases de datos depende de los requisitos específicos del proyecto. MongoDB es una base de datos NoSQL que permite esquemas flexibles, mientras que PostgreSQL es una base de datos relacional con soporte para transacciones complejas.
 |DEC-6| Azure PostgreSQL| La elección de Azure PostgreSQL puede deberse a la integración con otros servicios de Azure, escalabilidad, y características adicionales proporcionadas por la plataforma en la nube.
 |DEC-7| JWT-TOKEN| Web Tokens (JWT) proporcionan un método seguro para transmitir información entre partes como un objeto JSON. Se utilizan comúnmente para la autenticación y autorización en las APIs.
+|DEC-8| ATLAS MONGO| Atlas MongoDB es un servicio de base de datos gestionado en la nube para MongoDB. Ofrece escalabilidad, disponibilidad y seguridad sin la necesidad de gestionar la infraestructura.
 
 PASO 5: Instancias elementos de arquitectura, asignar responsabilidad y definir interfaces (diagrama de secuencia o de interacción)
 
@@ -667,6 +668,11 @@ Aquí va las tablas de decisiones de diseño.
 |QA-2| Uso de un patrón de mensajería mediante la introducción de una cola de mensajes en la capa de comunicaciones| Aunque el uso de una cola de mensajes puede parecer ir en contra del rendimiento impuesto por el escenario, se eligió una cola de mensajes porque algunas implementaciones tienen un alto rendimiento y además, será útil para soportar el QA-3|
 
 PASO 7: ANÁLISIS DEL DISEÑO ACTUAL, REVISAR OBJETIVO DE ITERACIÓN Y LOGRO DEL PROPÓSITO DEL DISEÑO
+No Abordado | Parcialmente Abordado | Completamente Abordado | Decisión de diseño
+--- | --- | --- | ---
+|||UC-7| DEC-4, DEC-5, DEC-6, DEC-7
+|||QA-7| DEC-4,DEC-5,DEC-6
+||QA-5||DEC-3,DEC-5,DEC-7
 
 #### ITERACIÓN 3
 
