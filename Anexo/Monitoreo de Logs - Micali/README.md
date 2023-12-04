@@ -60,3 +60,7 @@ De acuerdo a las funciones de estetipi de monitoreo, esto conlleva a los siguuie
 ## Demo Elastic Stack
 
 Video utilizando el stack Elastic (antes Stack ELK) para el monitoreo de logs.
+
+
+https://github.com/ulima-arqui-sw/grupo04/assets/103280082/8490af6c-6bd6-4dff-bc57-929a0998ee07
+
