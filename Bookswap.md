@@ -596,12 +596,12 @@ Se utilizarán las tácticas mencionadas en la sección 4.
 
 
 ### 7.3. ITERACIONES
-Se realizarán tres iteraciones, cuyos pasos 1 (objetivo de la iteración), 2 (elemento del sistema a refinar), 3 (elección de elemento del sistema a refinar), 4 (concepto de diseño que satisfacen el driver seleccionado) se resumirán en la siguiente tabla. En cada iteración se describirá el detalle.
-| ITERACIÓN | OBJETIVO | ELEMENTO | ELECCIÓN DE ELEMENTO | CONCEPTO DE DISEÑO |
-|---|---|---|---|---|
-|1 | Garantizar un adecuado inicio de sesión del usuario y su seguridad al navegar en la página web. | Módulo Usuario | Inicio de Sesión |  Autenticación JWT / Ratelimiting |
-|2 | Garantizar la interoperabilidad entre módulos, de manera que los productos agregados a la compra puedan ser transferidos a la logística del sistema. |  Módulos de Pagos Logística | Pasarela de pagos | Uso de pasarela de pagos externa. |
-|3 |  Garantizar el cumplimiento del resto de atributos de calidad en los casos de uso listados.  |  Todos los módulos |  Aplica a todos | Los mencionados en el punto 7.1 |
+Se realizarán tres iteraciones, cuyos pasos 1 (objetivo de la iteración), 2 (elemento del sistema a refinar), 3 (concepto de diseño que satisfacen el driver seleccionado) se resumirán en la siguiente tabla. En cada iteración se describirá el detalle.
+| ITERACIÓN | OBJETIVO | ELEMENTO | CONCEPTO DE DISEÑO |
+|---|---|---|---|
+|1 | Garantizar un adecuado inicio de sesión del usuario y su seguridad al navegar en la página web. | Módulo Usuario  |  Autenticación JWT / Ratelimiting |
+|2 | Garantizar la interoperabilidad entre módulos, de manera que los productos agregados a la compra puedan ser transferidos a la logística del sistema. |  Módulos de Pagos Logística | Uso de pasarela de pagos externa. |
+|3 |  Garantizar el cumplimiento del resto de atributos de calidad en los casos de uso listados.  |  Todos los módulos| Los mencionados en el punto 7.1 |
 
 #### ITERACIÓN 1
 
@@ -781,24 +781,35 @@ No Abordado | Parcialmente Abordado | Completamente Abordado | Decisión de dise
 
 #### ITERACIÓN 3
 
-PASO 1: Objetivo de iteración
+**PASO 1**: Objetivo de iteración
+- Garantizar el cumplimiento del resto de atributos de calidad que no han sido considerados en las iteraciones previas, tales como QA1 (Usabilidad) y QA3 (Mantenibilidad).
 
-PASO 2: Elemento del sistema a refinar
+**PASO 2**: Elemento del sistema a refinar
 
-PASO 3: Elegir uno o más elementos del sistema a refinar
+- De acuerdo con los atributos de calidad delimitados en la revisión de entradas:
+  
+  - Usabilidad: Todos los módulos
+  - Mantenibilidad: Infraestructura del servidor
 
-PASO 4: Elegir concepto(s) de diseño que satisfacen driver seleccionado
+**PASO 3**: Elegir concepto(s) de diseño que satisfacen driver seleccionado
 
-PASO 5: Instancias elementos de arquitectura, asignar responsabilidad y definir interfaces (diagrama de secuencia o de interacción)
+|ID |Decisión de diseño | Fundamento
+|---|---|---|
+|DEC-31| Uso de React como framework, Tailwind como framework CSS| React facilita creación de componentes modulares, junto con Tailwind, permite que los componentes se adecúen al tamaño de la pantalla, ofreciendo una página *responsive*, que cumple con la táctica de agrupar (soportar la iniciativa de usuario).|
+|DEC-32| Despliegue de software en Heroku | Heroku se integra con sistemas de control de versiones, lo que simplifica las actualizaciones y despliegues de nuevas versiones, además de ofrecer escalamiento automático en función de la demanda, permitir una integración continua y posibilidad de revertir a versiones anteriores. |
 
-PASO 6: Bosquejo de vistas y registro de decisiones de diseño
+**PASO 4**: Instanciar elementos de arquitectura, asignar responsabilidad y definir interfaces 
+
+Se refinará el diseño del UI con el uso de los parámetros seleccionados en el Paso 3, y se priorizará la mantenibilidad de la página mediante el despliegue en Heroku.
+
+**PASO 5**: Bosquejo de vistas y registro de decisiones de diseño
 Aquí va las tablas de decisiones de diseño.
 | Driver | Decisiones de diseño y ubicación | Justificación y suspuestos | 
 |----|----|----|
 |QA-1|Introducir concurrencia (táctica) en TimeServerConnector y FaultDetectionService | Se debe introducir la concurrencia para poder recibir y procesar varios eventos en simultáneo | 
 |QA-2| Uso de un patrón de mensajería mediante la introducción de una cola de mensajes en la capa de comunicaciones| Aunque el uso de una cola de mensajes puede parecer ir en contra del rendimiento impuesto por el escenario, se eligió una cola de mensajes porque algunas implementaciones tienen un alto rendimiento y además, será útil para soportar el QA-3|
 
-PASO 7: ANÁLISIS DEL DISEÑO ACTUAL, REVISAR OBJETIVO DE ITERACIÓN Y LOGRO DEL PROPÓSITO DEL DISEÑO
+**PASO 6**: ANÁLISIS DEL DISEÑO ACTUAL, REVISAR OBJETIVO DE ITERACIÓN Y LOGRO DEL PROPÓSITO DEL DISEÑO
 
 ## 7. REFERENCIAS
 Desafíos PWC (2022). Libros en el Perú: un mercado de 20 millones de dólares. https://desafios.pwc.pe/libros-en-el-peru-un-mercado-de-20-millones-de-dolares/
