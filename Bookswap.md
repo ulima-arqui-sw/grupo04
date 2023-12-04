@@ -795,21 +795,43 @@ No Abordado | Parcialmente Abordado | Completamente Abordado | Decisión de dise
 
 |ID |Decisión de diseño | Fundamento
 |---|---|---|
-|DEC-31| Uso de React como framework, Tailwind como framework CSS| React facilita creación de componentes modulares, junto con Tailwind, permite que los componentes se adecúen al tamaño de la pantalla, ofreciendo una página *responsive*, que cumple con la táctica de agrupar (soportar la iniciativa de usuario).|
-|DEC-32| Microsoft Azure | Para el almacenamiento de la base de datos PostgreSQL. |
-|DEC-33| MongoDB Atlas | Para el almacenamiento de la base de datos no relacional MongoDB. |
-|DEC-34| Azure App Service | Para el despliegue del frontend y el backend.|
+|DEC-1| Uso de React como framework, Tailwind como framework CSS| React facilita creación de componentes modulares, junto con Tailwind, permite que los componentes se adecúen al tamaño de la pantalla, ofreciendo una página *responsive*, que cumple con la táctica de agrupar (soportar la iniciativa de usuario).|
+|DEC-2| Microsoft Azure | Para el almacenamiento de la base de datos PostgreSQL. |
+|DEC-3| MongoDB Atlas | Para el almacenamiento de la base de datos no relacional MongoDB. |
+|DEC-4| Azure App Service | Para el despliegue del frontend y el backend.|
 
 **PASO 4**: Instanciar elementos de arquitectura, asignar responsabilidad y definir interfaces 
-
-Se refinará el diseño del UI con el uso de los parámetros seleccionados en el Paso 3, [...]
+- React y Tailwind: Paquetes de NodeJS descargados con npm. React permite la modularidad entre componentes, mientras que Tailwind habilita a los desarrolladores el mantenimiento de estos de manera directa y sencilla. Ambos promueven el diseño responsive.
+- Azure App Service: Facilita el despliegue y modificación de código. Capacidad de integrarse con repositorios en linea (Github, Gitlab), o proyectos de Visual Studio, donde cuenta un pipeline integrado para facilitar los despliegues. 
 
 **PASO 5**: Bosquejo de vistas y registro de decisiones de diseño
+- Almacenamiento en MongoDB Atlas
+![image](https://github.com/ulima-arqui-sw/grupo04/assets/103280082/6f896b9a-da1d-42fe-ba10-70dc07985afb)
+
+- Almacenamiento de PostgreSQL en Azure
+![image](https://github.com/ulima-arqui-sw/grupo04/assets/103280082/2ccd4279-8bb1-49fd-aa28-e5d1dfd1f993)
+
+- Publicacion de codigo fuente de una repo en el App Service
+![image](https://github.com/ulima-arqui-sw/grupo04/assets/103280082/f0d4856e-1c3d-4e04-90bf-1039b84d1924)
 
 
 **PASO 6**: ANÁLISIS DEL DISEÑO ACTUAL, REVISAR OBJETIVO DE ITERACIÓN Y LOGRO DEL PROPÓSITO DEL DISEÑO
 
-## 7. REFERENCIAS
+|No Abordado	|Parcialmente Abordado	|Completamente Abordado	|Decisión de diseño|
+|----|----|----|---|
+|||QA-1, UC-1|DEC-1|
+|||QA-3, UC-3|DEC-2,DEC-3,DEC-4|
+
+
+### 7.4 Observaciones Finales 
+- Desarrollar la comunicación asíncrona entre modulos para un mejor desacoplamiento de la aplicación
+- Mejorar el modulo de chat utilizando el patrón Pub-Sub, en vez de P2P
+- Implementar sistema de recomendaciones basado en Elastic Stack para una mejor experiencia en la búsqueda de libros
+- Diseñar módulo de análisis de datos para encontrar tendencias y oportunidades.
+- Implementar autenticación MFA
+
+
+## 8. REFERENCIAS
 Desafíos PWC (2022). Libros en el Perú: un mercado de 20 millones de dólares. https://desafios.pwc.pe/libros-en-el-peru-un-mercado-de-20-millones-de-dolares/
 
 Buscalibre (s.f.) Términos y condiciones Venta de Libros Usados. https://www.buscalibre.pe/terminos-y-condiciones-venta-usados-cl_st.html
