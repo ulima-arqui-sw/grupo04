@@ -796,18 +796,16 @@ No Abordado | Parcialmente Abordado | Completamente Abordado | Decisión de dise
 |ID |Decisión de diseño | Fundamento
 |---|---|---|
 |DEC-31| Uso de React como framework, Tailwind como framework CSS| React facilita creación de componentes modulares, junto con Tailwind, permite que los componentes se adecúen al tamaño de la pantalla, ofreciendo una página *responsive*, que cumple con la táctica de agrupar (soportar la iniciativa de usuario).|
-|DEC-32| Despliegue de software en Heroku | Heroku se integra con sistemas de control de versiones, lo que simplifica las actualizaciones y despliegues de nuevas versiones, además de ofrecer escalamiento automático en función de la demanda, permitir una integración continua y posibilidad de revertir a versiones anteriores. |
+|DEC-32| Microsoft Azure | Para el almacenamiento de la base de datos PostgreSQL. |
+|DEC-33| MongoDB Atlas | Para el almacenamiento de la base de datos no relacional MongoDB. |
+|DEC-34| Azure App Service | Para el despliegue del frontend y el backend.|
 
 **PASO 4**: Instanciar elementos de arquitectura, asignar responsabilidad y definir interfaces 
 
-Se refinará el diseño del UI con el uso de los parámetros seleccionados en el Paso 3, y se priorizará la mantenibilidad de la página mediante el despliegue en Heroku.
+Se refinará el diseño del UI con el uso de los parámetros seleccionados en el Paso 3, [...]
 
 **PASO 5**: Bosquejo de vistas y registro de decisiones de diseño
-Aquí va las tablas de decisiones de diseño.
-| Driver | Decisiones de diseño y ubicación | Justificación y suspuestos | 
-|----|----|----|
-|QA-1|Introducir concurrencia (táctica) en TimeServerConnector y FaultDetectionService | Se debe introducir la concurrencia para poder recibir y procesar varios eventos en simultáneo | 
-|QA-2| Uso de un patrón de mensajería mediante la introducción de una cola de mensajes en la capa de comunicaciones| Aunque el uso de una cola de mensajes puede parecer ir en contra del rendimiento impuesto por el escenario, se eligió una cola de mensajes porque algunas implementaciones tienen un alto rendimiento y además, será útil para soportar el QA-3|
+
 
 **PASO 6**: ANÁLISIS DEL DISEÑO ACTUAL, REVISAR OBJETIVO DE ITERACIÓN Y LOGRO DEL PROPÓSITO DEL DISEÑO
 
