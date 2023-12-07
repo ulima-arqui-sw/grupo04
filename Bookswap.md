@@ -67,7 +67,7 @@ El modelo de negocio se basa en las siguientes características:
 - <b>Gastos de Marketing</b>: Publicidad en línea y promoción para atraer nuevos usuarios.
 - <b>Costos de Transacción</b>: Relacionados con el procesamiento seguro de pagos.
 
-![business_model_canvas](img/business_model_canvas.png)
+![business_model_canvas](assets/business_model_canvas.png)
 
 ### c. Estructura del equipo
 
@@ -106,7 +106,7 @@ Este equipo se centra en la gestión financiera y administrativa de la empresa. 
 | CFO | Supervisar salud financiera de la empresa. Gestionar presupuestos. Colabora en decisiones estratégicas. |
 | Equipo Administrativo | Gestionar tareas administrativas y recursos humanos. Cumplir con requisitos legales. |
 
-<img src="img/organigrama.jpg" width="70%"/>
+<img src="assets/organigrama.jpg" width="70%"/>
 
 
 
@@ -161,7 +161,7 @@ Los stakeholders seleccionados para este trabajo son:
 - **Opciones de Envío (RFEL-03)**: Los vendedores pueden ofrecer diferentes opciones de envío, como envío estándar o express, para que los compradores elijan.
 - **Gestión de Devoluciones (RFEL-04)**: Los usuarios deben poder solicitar devoluciones y gestionar el proceso de devolución de libros si el producto no cumple con las expectativas.
 
-<img src="img/modulos.jpg" width="60%"/>
+<img src="assets/modulos.jpg" width="60%"/>
 
 ### 2.2 Flujo de Interacción de la Plataforma BookSwap: (Flujo Principal)
 
@@ -264,7 +264,7 @@ La plataforma web permite a los usuarios comprar y vender libros de segunda mano
 - **Editorial**: Esta tabla almacena información sobre las editoriales de los libros que se ofrecen a la venta en la plataforma. Los campos incluyen el nombre de la editorial y el país de origen.
 - **Autor**: Esta tabla almacena información sobre los autores de los libros que se ofrecen a la venta en la plataforma. Los campos incluyen el nombre del autor y el país de origen.
 
-  <img src="img/diagrama_bd.jpg" width="100%"/>
+  <img src="assets/diagrama_bd.jpg" width="100%"/>
 
 #### Base de Datos No Relacional
 
@@ -328,13 +328,13 @@ Se muestra el mapeo de elementos a nivel de despliegue. a arquitectura de la apl
 - **Base de datos**  almacena los datos de la aplicación. Está implementada en dos sistemas de gestión de bases de datos: PostgreSQL y MongoDB. La base de datos se ejecuta en un servidor.
 
 ## MODELO C4 NIVEL 1
-<img src="img/n1-sistemas.jpeg" width="80%">
+<img src="assets/n1-sistemas.jpeg" width="80%">
 
 ## MODELO C4 NIVEL 2
-<img src="img/n2-contenedores.jpeg" width="80%">
+<img src="assets/n2-contenedores.jpeg" width="80%">
 
 ## MODELO C4 NIVEL 3
-<img src="img/n3-componentes.jpeg" width="80%">
+<img src="assets/n3-componentes.jpeg" width="80%">
 
 ### 3.5. Elección de Tecnología
 Para el desarrollo del sistema, se han seleccionado las siguientes tecnologías:
@@ -455,7 +455,7 @@ Las plataformas dedicadas al comercio están sujetas a cambios frecuentes, como 
 
 - **Disminuir acoplamiento**: Se está tercerizando el servicio de pago mediante Niubiz.
 
-<img src="img/mantenibilidad.jpg" width="80%"/>
+<img src="assets/mantenibilidad.jpg" width="80%"/>
 
 ### 4.3 Interoperabilidad
 La interoperabilidad en BookSwap se plantea como una táctica esencial para mejorar la experiencia del usuario y la eficiencia del sistema. La interoperabilidad se refiere a la capacidad del sistema para interactuar, operar y compartir datos con otros sistemas de forma efectiva y sin problemas. En el contexto de BookSwap, la interoperabilidad se centra en integrar diversas funcionalidades y características que permiten a los usuarios interactuar sin problemas con la plataforma y a la plataforma interactuar eficientemente con otros sistemas externos. A continuación, se presentan las tácticas específicas para garantizar la interoperabilidad en BookSwap:
@@ -500,7 +500,7 @@ La seguridad es indispensable ya que la plataforma debe proteger la información
   - Realizar copias de seguridad periódicas de datos críticos y sistemas para facilitar la restauración en caso de un ataque exitoso.
 
 ## 5. Diagrama de Arquitectura
-<img src="img/DiagramaArq.png" width="100%"/>
+<img src="assets/DiagramaArq.png" width="100%"/>
 
 ## 6. QAW
 
@@ -714,7 +714,7 @@ Ofrecer una interfaz para la definición de modelos de datos.
 
 
 PASO 6: Bosquejo de vistas y registro de decisiones de diseño
-![Alt text](image.png)
+![Alt text](assets/image.png)
 
 | Driver | Decisiones de diseño y ubicación | Justificación y supuestos |
 |--------|----------------------------------|-----------------------------|
