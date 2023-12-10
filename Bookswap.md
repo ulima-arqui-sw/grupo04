@@ -67,7 +67,7 @@ El modelo de negocio se basa en las siguientes características:
 - <b>Gastos de Marketing</b>: Publicidad en línea y promoción para atraer nuevos usuarios.
 - <b>Costos de Transacción</b>: Relacionados con el procesamiento seguro de pagos.
 
-![business_model_canvas](img/business_model_canvas.png)
+![business_model_canvas](assets/business_model_canvas.png)
 
 ### c. Estructura del equipo
 
@@ -106,7 +106,7 @@ Este equipo se centra en la gestión financiera y administrativa de la empresa. 
 | CFO | Supervisar salud financiera de la empresa. Gestionar presupuestos. Colabora en decisiones estratégicas. |
 | Equipo Administrativo | Gestionar tareas administrativas y recursos humanos. Cumplir con requisitos legales. |
 
-<img src="img/organigrama.jpg" width="70%"/>
+<img src="assets/organigrama.jpg" width="70%"/>
 
 
 
@@ -161,7 +161,7 @@ Los stakeholders seleccionados para este trabajo son:
 - **Opciones de Envío (RFEL-03)**: Los vendedores pueden ofrecer diferentes opciones de envío, como envío estándar o express, para que los compradores elijan.
 - **Gestión de Devoluciones (RFEL-04)**: Los usuarios deben poder solicitar devoluciones y gestionar el proceso de devolución de libros si el producto no cumple con las expectativas.
 
-<img src="img/modulos.jpg" width="60%"/>
+<img src="assets/modulos.jpg" width="60%"/>
 
 ### 2.2 Flujo de Interacción de la Plataforma BookSwap: (Flujo Principal)
 
@@ -264,7 +264,7 @@ La plataforma web permite a los usuarios comprar y vender libros de segunda mano
 - **Editorial**: Esta tabla almacena información sobre las editoriales de los libros que se ofrecen a la venta en la plataforma. Los campos incluyen el nombre de la editorial y el país de origen.
 - **Autor**: Esta tabla almacena información sobre los autores de los libros que se ofrecen a la venta en la plataforma. Los campos incluyen el nombre del autor y el país de origen.
 
-<img src="img/diagrama_bd.jpg" width="100%"/>
+  <img src="assets/diagrama_bd.jpg" width="100%"/>
 
 #### Base de Datos No Relacional
 
@@ -318,16 +318,23 @@ Se utilizará para almacenar datos menos estructurados, como registros de activi
 ```
 
 ### 3.4. Mapeo entre Elementos de Arquitectura
-Se muestra el mapeo de elementos a 3 niveles.
+Se muestra el mapeo de elementos a nivel de despliegue. a arquitectura de la aplicación web es de tres capas y se divide en:
 
-En el nivel 1 se muestra como el Usuario se comunica con el sistema Bookswap, y como este se comunica con sistemas externos.
-<img src="img/n1-sistemas.jpeg" width="100%">
+- **Front-end**, es la capa que los usuarios ven y con la que interactúan. Está implementado en React.js. El front-end se ejecuta en el navegador del usuario.
 
-En el nivel 2 se muestra a nivel de contenedores, donde se ve a detalle la comunicación interna que realiza el sistema Bookswap.
-<img src="img/n2-contenedores.jpeg" width="100%">
 
-En el nivel 3 se puede ver los módulos con el que cuenta la aplicación y la comunicación que tienen con los sistemas y componentes externos.
-<img src="img/n3-componentes.jpeg" width="100%">
+- **Back-end** de la aplicación es la capa que proporciona acceso a los datos y funcionalidades de la aplicación. Está implementado en express.js con Javascript como lenguaje de programación. El API se ejecuta en un servidor.
+
+- **Base de datos**  almacena los datos de la aplicación. Está implementada en dos sistemas de gestión de bases de datos: PostgreSQL y MongoDB. La base de datos se ejecuta en un servidor.
+
+## MODELO C4 NIVEL 1
+<img src="assets/n1-sistemas.jpeg" width="80%">
+
+## MODELO C4 NIVEL 2
+<img src="assets/n2-contenedores.jpeg" width="80%">
+
+## MODELO C4 NIVEL 3
+<img src="assets/n3-componentes.jpeg" width="80%">
 
 ### 3.5. Elección de Tecnología
 Para el desarrollo del sistema, se han seleccionado las siguientes tecnologías:
@@ -448,7 +455,7 @@ Las plataformas dedicadas al comercio están sujetas a cambios frecuentes, como 
 
 - **Disminuir acoplamiento**: Se está tercerizando el servicio de pago mediante Niubiz.
 
-<img src="img/mantenibilidad.jpg" width="80%"/>
+<img src="assets/mantenibilidad.jpg" width="80%"/>
 
 ### 4.3 Interoperabilidad
 La interoperabilidad en BookSwap se plantea como una táctica esencial para mejorar la experiencia del usuario y la eficiencia del sistema. La interoperabilidad se refiere a la capacidad del sistema para interactuar, operar y compartir datos con otros sistemas de forma efectiva y sin problemas. En el contexto de BookSwap, la interoperabilidad se centra en integrar diversas funcionalidades y características que permiten a los usuarios interactuar sin problemas con la plataforma y a la plataforma interactuar eficientemente con otros sistemas externos. A continuación, se presentan las tácticas específicas para garantizar la interoperabilidad en BookSwap:
@@ -492,11 +499,339 @@ La seguridad es indispensable ya que la plataforma debe proteger la información
 - **Recuperarse de ataques**
   - Realizar copias de seguridad periódicas de datos críticos y sistemas para facilitar la restauración en caso de un ataque exitoso.
 
-## 5. Anexo: Tópicos en Arquitectura de Software
-## 6. Diagrama de Arquitectura
-<img src="img/DiagramaArq.png" width="100%"/>
+## 5. Diagrama de Arquitectura
+<img src="assets/DiagramaArq.png" width="100%"/>
 
-## 7. REFERENCIAS
+## 6. QAW
+
+### 6.1. Identificación de Stakeholders
+
+|ID|Rol (Catálogo)|Cargo|
+|--|--|--|
+|STK-01|Usuario|Usuario|
+|STK-02|Jefe de proyecto|CEO|
+|STK-03|Administrador de Base de Datos|Data Governance|
+|STK-04|Diseñador|Desarrollador |
+|STK-05|Implementador|Ingeniero de sistemas|
+|STK-06|Especialista de Despliegue|Ingeniero de software|
+|STK-07|Responsable de pruebas|Q&A|
+|STK-08|Responsable de Mantenimiento|Q&A|
+|STK-09|Ingeniero de Sistemas|CTO|
+
+Las etapas de Brainstorming, Consolidación y Refinamiento se consolidaron en la siguiente tabla de escenarios priorizados y detallados.
+
+|ID Escenario|	Fuente Estímulo	|Estímulo|	Artefacto	|Entorno	|Respuesta|Medida de Respuesta|
+|--|---|--|--|--|--|--|
+|ESC-02	|Especialista de despliegue	|Se realiza una actualización de sistema	|Infraestructura del servidor|	Modo seguro	|El sistema debe operar con normalidad	|Downtime por actualización :  5 min|
+|ESC-10	|Jefe de proyectos	|Cambio de base de datos por decisión estratégica	|Base de datos|	Operación normal	|Cambio de base de datos por decisión estratégica	|Tiempo de inactividad y retroalimentación del usuario posterior a la actualización|
+|ESC-11|	Diseñador/ Jefe de proyectos|	Cambios en la interfaz de usuario|	Repositorio del proyecto	|Tiempo de diseño|	El sistema permite visualizar los cambios en la UI sin interrupciones en el servicio.	|Evaluación de la implementación en términos de usabilidad y aceptación del usuario|
+|ESC-04|	Usuario	|Inicio de sesión|	Módulo de inicio de sesión|	Operación normal	|El sistema debe iniciar sesión en caso el registro sea correcto, caso contrario, debe mostrar un mensaje genérico sin dar detalles del error.|	Tiempo de respuesta del sistema y tasa de éxito en la autenticación|
+|ESC-05|	Reporte de usuarios / Notificación de error de la página web	|Falla en servicios externos	|Módulos que dependan del servicios externos( pasarela de pagos)	|Operación normal	|El sistema debe notificar al usuario y seguir operando|	Tiempo de recuperación 
+|ESC-13	|Política de respaldo|	El administrador de la base de datos realiza una copia de seguridad.|	Base de datos	|Operación normal|	El sistema completa la copia de seguridad sin pérdida de datos.	|Tiempo de frecuencia de respaldo: mensual|
+|ESC-15	|Procesamiento de la compra	|Procesar información de compra y enviar al módulo de logística	|Módulo de pagos y logística	|Operación normal	|El sistema comparte eficientemente informacion de un pedido entre modulos	|
+|ESC-20	|Interacción del usuario con sistema de chat	|El usuario desea visualizar una conversación pasada de un tiempo pasado considerable|	Módulo de Mensajería	|Operación normal	|El sistema recupera la conversación solicitada y la presenta de manera completa y rápida, asegurando la integridad de los mensajes	|Tiempo de respuesta para la carga de conversación y tasa de éxito en la recuperación de mensaje|
+|ESC-07	|Diseñador|	Cambio en el tamaño de la vista	|Vista	|Operación normal|	Redimensionamiento automático de los componentes	|Componentes mantienen su funcionabilidad y mantienen su consistencia visual|
+|ESC-19|	Nuevo requerimiento	|Se debe subir un nuevo cambio a producción|	Repositorio del proyecto|	Operación normal|	El sistema debe tener un downtime minimo para no romper los SLAs	|Tiempo de downtime por cada nuevo despliegue: 5 min|
+
+## 7. ARCHITECTURAL DESIGN DECISIONS  (ADD)
+
+El diseño de arquitectura nos ayudará a definir la estructura general del software, la organización de los diversos componentes, para que el software cumpla los atributos de calidad que permitan un funcionamiento adecuado del aplicativo web, además de garantizar que el software cumpla con los estándares de rendimiento y calidad requeridos. El ADD servirá de guía para el desarrollo del software en general.
+
+### 7.1. ENTRADAS DEL ADD
+
+  #### DRIVERS DE ARQUITECTURA
+
+- **Casos de uso**: 
+Se eliminó el escenario 10 debido a que podía fusionarse con el escenario 1.
+
+  |CÓDIGO|CASO DE USO|DESCRIPCIÓN|
+  |--|--|--|
+  |UC-1|Realizar una Actualización del Sistema| Garantizar que las actualizaciones se realicen de manera eficiente y sin interrupciones significativas en el servicio.|
+  |UC-2|Cambiar la Base de Datos por Decisión Estratégica| Mejorar o adaptar la infraestructura de la base de datos para satisfacer las necesidades cambiantes del sistema.| 
+  |UC-3|Realizar Cambios en la Interfaz de Usuario|Mantener una interfaz de usuario actualizada, atractiva y funcional que cumpla con las expectativas del usuario. | 
+  |UC-4|Iniciar sesión|Garantizar la seguridad y la identificación adecuada de los usuarios que acceden al sistema, mediante autenticación y verificación.|
+  |UC-5|Manejar una Falla en Servicios Externos| Mantener la continuidad del servicio y proporcionar una experiencia de usuario sin interrupciones, incluso en caso de fallas externas.|
+  |UC-6|Realizar una Copia de Seguridad| Asegurar la integridad y disponibilidad de los datos, permitiendo la recuperación en caso de pérdida o errores.|
+  |UC-7|Procesar Información de Compra y Enviar al Módulo de Logística|  Garantizar una ejecución eficiente de las transacciones de compra y coordinar la logística asociada. |
+  |UC-8|Visualizar Conversación Pasada| Brindar a los usuarios la capacidad de acceder y revisar su historial de conversaciones de manera rápida y eficiente.|
+  |UC-9|Cambiar el Tamaño de la Vista| Asegurar una experiencia de usuario consistente y funcional, independientemente del tamaño de la pantalla.|
+
+- **Atributos de calidad**:
+
+  |Código|Atributo|Escenario|Caso de Uso relacionado|
+  |--|--|--|--|
+  |QA-1|Usabilidad|Asegurar una experiencia adecuada de usuario con la interfaz. |UC-3, UC-9|
+  |QA-2|Portabilidad|Cambiar la Base de Datos por Decisión Estratégica|UC-2|
+  |QA-3|Mantenibilidad|Actualizaciones de software|UC-1|
+  |QA-4|Seguridad|Inicio de sesión seguro|UC-4 |
+  |QA-5|Fiabilidad|Manejar fallas externas|UC-5|
+  |QA-6|Seguridad|Realizar copias de seguridad|UC-6|
+  |QA-7|Interoperabilidad|Intercambio de información entre módulos |UC-7|
+  |QA-8|Rendimiento|Visualizar conversaciones pasadas eficientemente|UC-8|
+
+- **Restricciones**: 
+Las bases de datos a utilizar son PostgreSQL para los datos de los libros, las transacciones y los usuarioS; y MongoDB para los datos de los mensajes entre usuarios en la red social. Las bases de datos se desplegarán en Microsoft Azure con una versión de prueba. Se usará Niubiz como pasarela de pago.
+
+#### CONCEPTOS DE DISEÑO
+
+- **Patrones de arquitectura**: 
+  - Se puede aplicar el **patrón P2P** para la mensajería entre usuarios. Este es ideal para la comunicación directa entre pares evitando un servidor centralizado para las conversaciones, además de que reduce la dependencia de un único punto de falla.
+  - Para el resto de la arquitectura, se puede aplicar el **patrón Modelo Vista Controlador**. Esto facilita la gestión y el mantenimiento del código facilitando la escalabilidad, además de que permite la reutilización de componentes en diferentes partes de la aplicación. 
+
+- **Tácticas**
+Se utilizarán las tácticas mencionadas en la sección 4.
+
+- **Componentes Desarrollados externamente** 
+  - Pasarela de pagos: Niubiz
+  - Frameworks: React+Vite | Express 
+  - Nubes: PostgreSQL y MongoDB
+
+- **Decisiones de Diseño de Arquitectura**: Se utilizarán las decisiones de diseño especificadas en la sección 3.
+
+### 7.2. REVISAR LAS ENTRADAS
+ 
+ |PROPÓSITO DE DISEÑO | FUNCIONALIDAD PRIMARIA | ESCENARIOS DE CALIDAD | RESTRICCIONES |
+ |--|--|--|--|
+ |Sistema desde cero. Producir un diseño que sirva de base de manera eficiente. | UC4 - UC7 soportan requerimientos funcionales. UC1: función de soporte | Se priorizan por relación con funcionalidad primaria. Seleccionados: QA4, QA7 (prioridad ALTA), QA1 y QA3 (prioridad media)| Se seleccionan todas las mencionadas. |
+
+
+### 7.3. ITERACIONES
+Se realizarán tres iteraciones, cuyos pasos 1 (objetivo de la iteración), 2 (elemento del sistema a refinar), 3 (concepto de diseño que satisfacen el driver seleccionado) se resumirán en la siguiente tabla. En cada iteración se describirá el detalle.
+| ITERACIÓN | OBJETIVO | ELEMENTO | CONCEPTO DE DISEÑO |
+|---|---|---|---|
+|1 | Garantizar un adecuado inicio de sesión del usuario y su seguridad al navegar en la página web. | Módulo Usuario  |  Autenticación JWT / Ratelimiting |
+|2 | Garantizar la interoperabilidad entre módulos, de manera que los productos agregados a la compra puedan ser transferidos a la logística del sistema. |  Módulos de Pagos Logística | Uso de pasarela de pagos externa. |
+|3 |  Garantizar el cumplimiento del resto de atributos de calidad en los casos de uso listados.  |  Todos los módulos| Los mencionados en el punto 7.1 |
+
+#### ITERACIÓN 1
+
+PASO 1: Objetivo de iteración:
+### Objetivo Principal
+El objetivo primordial de esta iteración es implementar un sistema robusto de inicio de sesión para los usuarios, garantizando no solo la accesibilidad sino también la seguridad durante toda la experiencia de navegación en nuestra página web.
+
+### Detalles del Objetivo
+1. **Implementación de Inicio de Sesión:**
+   - Introducir un sistema de inicio de sesión utilizando la decisión de diseño DEC-7 (JWT-TOKEN) para autenticar a los usuarios de manera segura y eficiente.
+   - Verificar y validar las credenciales del usuario durante el proceso de inicio de sesión.
+
+2. **Seguridad en las APIs:**
+   - Reforzar la seguridad en nuestras APIs mediante la utilización de JWT (JSON Web Tokens) para la autenticación de usuarios, evitando vulnerabilidades comunes como ataques de suplantación de identidad.
+   - Implementar mecanismos de expiración y renovación de tokens para mantener la seguridad a lo largo del tiempo de sesión.
+
+3. **Registro de Actividades:**
+   - Establecer un sistema de registro de actividades del usuario, permitiendo la monitorización y detección proactiva de comportamientos sospechosos.
+   - Registrar eventos de inicio de sesión, cierres de sesión y otros eventos de importancia para un análisis de seguridad.
+
+4. **Seguridad en Contraseñas:**
+   - Aplicar buenas prácticas de seguridad en la gestión de contraseñas, como el almacenamiento seguro mediante técnicas hash y la imposición de requisitos de complejidad.
+
+### Métricas de Éxito
+- **Índice de Éxito de Inicios de Sesión:** Lograr un alto porcentaje de inicios de sesión exitosos.
+
+
+PASO 2: Elemento del sistema a refinar
+
+### Descripción del Módulo Usuario
+El Módulo Usuario es una parte crítica de nuestra aplicación, ya que facilita las funciones de registro y inicio de sesión para los usuarios. Dada su importancia, es crucial asegurar la robustez y seguridad de este componente.
+
+### Objetivos de Refinamiento
+1. **Implementación de JWT en Proceso de Inicio de Sesión:**
+   - Integrar de manera efectiva la decisión de diseño DEC-7 (JWT-TOKEN) en el proceso de inicio de sesión del usuario.
+   - Garantizar que la generación y verificación de tokens JWT se realice de manera segura, utilizando bibliotecas y prácticas recomendadas.
+
+2. **Políticas de Contraseña:**
+   - Establecer políticas de contraseñas robustas que exijan una combinación de caracteres, números y símbolos.
+
+3. **Control de Acceso:**
+   - Utilizar los datos almacenados en el token JWT para autorizar acciones específicas y mantener la seguridad a nivel funcional.
+### Métricas de Éxito
+- **Tasa de Éxito en Verificación de Tokens JWT:** Garantizar una alta tasa de éxito en la verificación de tokens, indicando la correcta implementación del sistema de autenticación.
+
+PASO 3: Elegir uno o más elementos del sistema a refinar
+
+El "Inicio de Sesión" se ha identificado como el componente central a refinar durante esta iteración. Este proceso permite a los usuarios autenticarse en la aplicación, estableciendo su identidad y autorizando el acceso a funcionalidades específicas. Mejorar este componente es fundamental para garantizar una experiencia de usuario segura y eficiente.
+
+- Seguridad: Reforzar la seguridad del proceso de inicio de sesión para prevenir accesos no autorizados y proteger la información del usuario.
+- Eficiencia: Optimizar el flujo de inicio de sesión para garantizar una experiencia de usuario fluida y rápida.
+
+PASO 4: Elegir concepto(s) de diseño que satisfacen driver seleccionado
+
+**Autenticación JWT (JSON Web Tokens):**
+
+- Descripción: La autenticación JWT es un método utilizado para verificar la identidad de un usuario mediante el uso de tokens basados en JSON. Estos tokens son generados por un servidor de autenticación después de que un usuario se ha autenticado correctamente.
+- Funcionamiento: Después de que un usuario inicia sesión, el servidor genera un token JWT que contiene información sobre el usuario y sus privilegios. Este token se firma digitalmente y se envía al cliente. El cliente incluye este token en las solicitudes posteriores al servidor, permitiendo al servidor verificar la identidad del usuario en cada solicitud.
+- Beneficios: La autenticación JWT es eficiente y escalable, ya que elimina la necesidad de mantener sesiones de usuario en el servidor. Además, al contener información codificada en el token, reduce la necesidad de consultar la base de datos en cada solicitud, mejorando el rendimiento.
+Ratelimiting:
+
+**Ratelimiting**
+- Descripción: El "Ratelimiting" (limitación de velocidad) es una técnica utilizada para controlar la cantidad de solicitudes que un usuario puede hacer a una aplicación o servicio en un período de tiempo específico.
+- Funcionamiento: Se establece un límite máximo de solicitudes que un usuario puede realizar en un intervalo de tiempo determinado. Si el usuario excede este límite, se le niega temporalmente el acceso a ciertos recursos o funciones. El "Ratelimiting" es una medida de seguridad para prevenir ataques de fuerza bruta o abuso de servicios.
+- Beneficios: Protege contra abusos accidentales o malintencionados al imponer restricciones en la velocidad de las solicitudes. Ayuda a mantener la estabilidad y disponibilidad del sistema, evitando la sobrecarga de recursos.
+
+|ID |Decisión de diseño | Fundamento
+|---|---|---|
+|DEC-1| Express.js| Express.js es un marco web de Node.js que simplifica el desarrollo de aplicaciones web y APIs. Se ha vuelto popular debido a su simplicidad, flexibilidad y rendimiento.
+|DEC-2| REST| La arquitectura REST proporciona un enfoque simple y escalable para el diseño de servicios web. Utiliza operaciones HTTP estándar (GET, POST, PUT, DELETE) y es ampliamente adoptada para la construcción de APIs.
+|DEC-3| Mongoose| Mongoose es una biblioteca de modelado de objetos MongoDB para Node.js. Facilita la interacción con bases de datos MongoDB al proporcionar un esquema claro y validación de datos.
+|DEC-4| Sequelize| Sequelize es un ORM (Object-Relational Mapping) para bases de datos SQL. Facilita la interacción con bases de datos relacionales, permitiendo el uso de objetos y consultas en lugar de SQL directo.
+|DEC-5| Base de datos relacionales y no relacionales (NoSQL)|Mongo y PostgreSQL, la elección de bases de datos depende de los requisitos específicos del proyecto. MongoDB es una base de datos NoSQL que permite esquemas flexibles, mientras que PostgreSQL es una base de datos relacional con soporte para transacciones complejas.
+|DEC-6| Azure PostgreSQL| La elección de Azure PostgreSQL puede deberse a la integración con otros servicios de Azure, escalabilidad, y características adicionales proporcionadas por la plataforma en la nube.
+|DEC-7| JWT-TOKEN| Web Tokens (JWT) proporcionan un método seguro para transmitir información entre partes como un objeto JSON. Se utilizan comúnmente para la autenticación y autorización en las APIs.
+|DEC-8| ATLAS MONGO| Atlas MongoDB es un servicio de base de datos gestionado en la nube para MongoDB. Ofrece escalabilidad, disponibilidad y seguridad sin la necesidad de gestionar la infraestructura.
+
+PASO 5: Instancias elementos de arquitectura, asignar responsabilidad y definir interfaces (diagrama de secuencia o de interacción)
+
+**JWT (JSON Web Tokens):**
+
+- Responsabilidad:
+Gestionar la autenticación y autorización de usuarios mediante la emisión y validación de tokens seguros.
+Interfaces:
+Exponer endpoints para la generación y validación de tokens.
+Proporcionar una interfaz para la gestión de usuarios y roles.
+
+**Azure PostgreSQL:**
+
+- Responsabilidad:
+Almacenar y gestionar datos relacionados con usuarios y aplicaciones de manera segura y escalable.
+Interfaces:
+Ofrecer una interfaz de conexión segura para la aplicación backend.
+Exponer operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para la gestión de datos.
+
+**REST (Representational State Transfer):**
+
+- Responsabilidad:
+Definir un estilo arquitectónico para el desarrollo de servicios web basados en estándares HTTP.
+Interfaces:
+Definir y documentar endpoints para las operaciones de la aplicación (por ejemplo, autenticación, consulta de datos).
+
+**Sequelize:**
+
+- Responsabilidad:
+Proporcionar un ORM (Object-Relational Mapping) para interactuar con la base de datos de manera abstracta.
+Interfaces:
+Exponer métodos y funciones para realizar operaciones de base de datos sin la necesidad de escribir SQL directamente.
+Ofrecer una interfaz para la definición de modelos de datos.
+
+
+PASO 6: Bosquejo de vistas y registro de decisiones de diseño
+![Alt text](assets/image.png)
+
+| Driver | Decisiones de diseño y ubicación | Justificación y supuestos |
+|--------|----------------------------------|-----------------------------|
+| Seguridad del Usuario | Uso de JWT para autenticación y autorización. | La decisión de implementar JWT (JSON Web Tokens) se basa en su capacidad para proporcionar un método seguro y eficiente de autenticación, eliminando la necesidad de almacenar información de sesión en el servidor. |
+| Almacenamiento de Datos | Utilización de Azure PostgreSQL con Sequelize como ORM. | Se elige Azure PostgreSQL como base de datos relacional para aprovechar su escalabilidad y confiabilidad. Sequelize se utiliza como ORM para simplificar las interacciones con la base de datos desde la aplicación. |
+| Diseño de la API | Implementación de una arquitectura RESTful. | La decisión de adoptar una arquitectura RESTful se debe a su simplicidad, escalabilidad y facilidad de integración con diferentes tecnologías y plataformas. |
+| Abstracción de la Base de Datos | Uso de Sequelize como ORM para interactuar con Azure PostgreSQL. | Sequelize proporciona una capa de abstracción sobre la base de datos, facilitando la realización de operaciones CRUD y simplificando el código. |
+
+
+PASO 7: ANÁLISIS DEL DISEÑO ACTUAL, REVISAR OBJETIVO DE ITERACIÓN Y LOGRO DEL PROPÓSITO DEL DISEÑO
+
+|No Abordado	|Parcialmente Abordado	|Completamente Abordado	|Decisión de diseño|
+|----|----|----|---|
+|ESC-7|ESC-2   |DEC-2,DEC-5   |
+|ESC-10|       || DEC-5.DEC-6|
+|ESC-11| |   | |
+|    |    |ESC-4|DEC-1,DEC-2,DEC-4,DEC-6,DEC-5,DEC-7|
+|ESC-05|  | | |
+|      |ESC-13||DEC-2,DEC-6|
+|ESC-20|      |||
+|ESC-15|      |||
+|       |ESC-07||DEC-2,DEC-6,DEC-5|
+|       |ESC-19||DEC-2,DEC-6,DEC-5|
+
+
+#### ITERACIÓN 2
+PASO 1: Objetivo de iteración
+
+Garantizar la interoperabilidad entre módulos, de manera que los productos agregados a la compra puedan ser transferidos a la logística del sistema.
+
+PASO 2: Elemento del sistema a refinar
+
+En esta iteración el elemento es el sistema completo, pero la iteración se centra en los módulos de Pago y Logística
+
+PASO 4: Elegir concepto(s) de diseño que satisfacen driver seleccionado
+
+|ID |Decisión de diseño | Fundamento
+|---|---|---|
+|DEC-1| ATLAS MONGO| Atlas MongoDB es un servicio de base de datos gestionado en la nube para MongoDB. Ofrece escalabilidad, disponibilidad y seguridad sin la necesidad de gestionar la infraestructura.
+|DEC-2| Pasarela de pago Niubiz| La elección de Niubiz como pasarela de pago puede deberse a su confiabilidad, seguridad y la capacidad de procesar pagos de manera eficiente.
+|DEC-3| Certificación SSL | Los despliegues de la aplicación, deben contar con un certificado SSL para no tener problemas con la comunicación al API de Niubiz.
+|DEC-4| Interfaz unificada para módulos de pago y logística	| Se establecerá una interfaz unificada que permita la comunicación eficiente entre los módulos de pago y logística. Esto facilitará la transferencia de información sobre productos adquiridos, métodos de pago y direcciones de entrega de manera coherente y sin ambigüedades. La interfaz deberá ser bien definida y documentada para garantizar la consistencia en la implementación de ambos módulos.
+|DEC-5| Adopción de estándares de intercambio de datos | Se seleccionarán estándares de intercambio de datos reconocidos y ampliamente aceptados, como JSON o XML, para la transferencia de información entre los módulos de pago y logística. Esto asegurará la interoperabilidad y simplificará la integración con futuros módulos o servicios externos.
+|DEC-6|Implementación de un bus de eventos para comunicación asíncrona|Se utilizará un bus de eventos para la comunicación asíncrona entre los módulos de pago y logística. Esto permitirá una mayor flexibilidad y escalabilidad al tiempo que reduce la dependencia directa entre los módulos. Los eventos específicos incluirán la confirmación de pago, la disponibilidad de productos y las actualizaciones de estado logístico.
+|DEC-7|Registro centralizado de eventos y transacciones|	Se establecerá un registro centralizado que capture eventos y transacciones entre los módulos de pago y logística. Esto facilitará la auditoría, la resolución de problemas y el seguimiento de las actividades realizadas. Los registros centralizados también proporcionarán una visión histórica de las interacciones, lo que puede ser valioso para análisis y mejora continua.
+
+PASO 5: Instancias elementos de arquitectura, asignar responsabilidad y definir interfaces
+- MongoDB Atlas: Cluster de MongoDB Atlas (nube). Encargado de almacenar datos relacionados a mensajes y publicaciones de usuarios. Conexión mediante una cadena definida y utilizando Mongoose para facilitar esto.
+- Pasarela de pago Niubiz: API oficial de Niubiz para procesar los pagos. Procesa, valida y registra las transacciones financieras relacionadas a la aplicación. Se accede mediante la API oficial de Niubiz mediante HTTPS haciendo uso de certificados SSL, autenticandose con una API Key autorizada.
+
+PASO 6: Bosquejo de vistas y registro de decisiones de diseño
+Aquí va las tablas de decisiones de diseño.
+| Driver | Decisiones de diseño y ubicación | Justificación y suspuestos | 
+|----|----|----|
+|QA-1|Introducir concurrencia (táctica) en TimeServerConnector y FaultDetectionService | Se debe introducir la concurrencia para poder recibir y procesar varios eventos en simultáneo | 
+|QA-2| Uso de un patrón de mensajería mediante la introducción de una cola de mensajes en la capa de comunicaciones| Aunque el uso de una cola de mensajes puede parecer ir en contra del rendimiento impuesto por el escenario, se eligió una cola de mensajes porque algunas implementaciones tienen un alto rendimiento y además, será útil para soportar el QA-3|
+
+PASO 7: ANÁLISIS DEL DISEÑO ACTUAL, REVISAR OBJETIVO DE ITERACIÓN Y LOGRO DEL PROPÓSITO DEL DISEÑO
+No Abordado | Parcialmente Abordado | Completamente Abordado | Decisión de diseño
+--- | --- | --- | ---
+|||UC-7| DEC-4, DEC-5, DEC-6, DEC-7
+|||QA-7| DEC-4,DEC-5,DEC-6
+||QA-5||DEC-3,DEC-5,DEC-7
+
+#### ITERACIÓN 3
+
+**PASO 1**: Objetivo de iteración
+- Garantizar el cumplimiento del resto de atributos de calidad que no han sido considerados en las iteraciones previas, tales como QA1 (Usabilidad) y QA3 (Mantenibilidad).
+
+**PASO 2**: Elemento del sistema a refinar
+
+- De acuerdo con los atributos de calidad delimitados en la revisión de entradas:
+  
+  - Usabilidad: Todos los módulos
+  - Mantenibilidad: Infraestructura del servidor
+
+**PASO 3**: Elegir concepto(s) de diseño que satisfacen driver seleccionado
+
+|ID |Decisión de diseño | Fundamento
+|---|---|---|
+|DEC-1| Uso de React como framework, Tailwind como framework CSS| React facilita creación de componentes modulares, junto con Tailwind, permite que los componentes se adecúen al tamaño de la pantalla, ofreciendo una página *responsive*, que cumple con la táctica de agrupar (soportar la iniciativa de usuario).|
+|DEC-2| Microsoft Azure | Para el almacenamiento de la base de datos PostgreSQL. |
+|DEC-3| MongoDB Atlas | Para el almacenamiento de la base de datos no relacional MongoDB. |
+|DEC-4| Azure App Service | Para el despliegue del frontend y el backend.|
+
+**PASO 4**: Instanciar elementos de arquitectura, asignar responsabilidad y definir interfaces 
+- React y Tailwind: Paquetes de NodeJS descargados con npm. React permite la modularidad entre componentes, mientras que Tailwind habilita a los desarrolladores el mantenimiento de estos de manera directa y sencilla. Ambos promueven el diseño responsive.
+- Azure App Service: Facilita el despliegue y modificación de código. Capacidad de integrarse con repositorios en linea (Github, Gitlab), o proyectos de Visual Studio, donde cuenta un pipeline integrado para facilitar los despliegues. 
+
+**PASO 5**: Bosquejo de vistas y registro de decisiones de diseño
+- Almacenamiento en MongoDB Atlas
+![image](https://github.com/ulima-arqui-sw/grupo04/assets/103280082/6f896b9a-da1d-42fe-ba10-70dc07985afb)
+
+- Almacenamiento de PostgreSQL en Azure
+![image](https://github.com/ulima-arqui-sw/grupo04/assets/103280082/2ccd4279-8bb1-49fd-aa28-e5d1dfd1f993)
+
+- Publicacion de codigo fuente de una repo en el App Service
+![image](https://github.com/ulima-arqui-sw/grupo04/assets/103280082/f0d4856e-1c3d-4e04-90bf-1039b84d1924)
+
+
+**PASO 6**: ANÁLISIS DEL DISEÑO ACTUAL, REVISAR OBJETIVO DE ITERACIÓN Y LOGRO DEL PROPÓSITO DEL DISEÑO
+
+|No Abordado	|Parcialmente Abordado	|Completamente Abordado	|Decisión de diseño|
+|----|----|----|---|
+|||QA-1, UC-1|DEC-1|
+|||QA-3, UC-3|DEC-2,DEC-3,DEC-4|
+
+
+### 7.4 Observaciones Finales 
+- Desarrollar la comunicación asíncrona entre modulos para un mejor desacoplamiento de la aplicación
+- Mejorar el modulo de chat utilizando el patrón Pub-Sub, en vez de P2P
+- Implementar sistema de recomendaciones basado en Elastic Stack para una mejor experiencia en la búsqueda de libros
+- Diseñar módulo de análisis de datos para encontrar tendencias y oportunidades.
+- Implementar autenticación MFA
+
+
+## 8. REFERENCIAS
 Desafíos PWC (2022). Libros en el Perú: un mercado de 20 millones de dólares. https://desafios.pwc.pe/libros-en-el-peru-un-mercado-de-20-millones-de-dolares/
 
 Buscalibre (s.f.) Términos y condiciones Venta de Libros Usados. https://www.buscalibre.pe/terminos-y-condiciones-venta-usados-cl_st.html
